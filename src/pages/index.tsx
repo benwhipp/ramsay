@@ -12,6 +12,8 @@ const Home = () => {
     useEffect(() => {
         if (isFetching) {
             const fetchData = async () => {
+                setResults(null);
+                setError(null);
                 try {
                     const response = await fetch(
                         'https://gc-interview-api.azurewebsites.net/api/consultants',
@@ -24,16 +26,20 @@ const Home = () => {
                     const data = (await response.json()) as Person[];
 
                     setResults(data);
-                    setIsFetching(false);
                 } catch (error) {
                     setError('Sorry, something went wrong. Please try again.');
-                    setIsFetching(false);
                 }
             };
 
             void fetchData();
         }
     }, [isFetching]);
+
+    useEffect(() => {
+        if (results !== null || error !== null) {
+            setIsFetching(false);
+        }
+    }, [results, error]);
 
     useEffect(() => {
         setTimeout(() => setIsFetching(true), 500);
