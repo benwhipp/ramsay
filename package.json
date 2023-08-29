@@ -10,14 +10,17 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.6.0",
+    "framer-motion": "^10.16.1",
     "next": "^13.4.13",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/eslint": "^8.44.2",
     "@types/node": "^18.16.0",
+    "@types/prettier": "^3.0.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
@@ -25,6 +28,8 @@
     "autoprefixer": "^10.4.14",
     "eslint": "^8.47.0",
     "eslint-config-next": "^13.4.13",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-typescript-sort-keys": "^2.3.0",
     "postcss": "^8.4.27",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.5.1",
