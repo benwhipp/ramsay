@@ -1,9 +1,44 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 import { Results } from '@/components/Results';
+import type { Person } from '@/types/result';
 
-export default function Home() {
+const Home = () => {
+    const [results, setResults] = useState<Person[] | null>(null);
+    const [isFetching, setIsFetching] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (isFetching) {
+            const fetchData = async () => {
+                try {
+                    const response = await fetch(
+                        'https://gc-interview-api.azurewebsites.net/api/consultants',
+                    );
+
+                    if (!response.ok) {
+                        throw new Error('HTTP error ' + response.status);
+                    }
+
+                    const data = (await response.json()) as Person[];
+
+                    setResults(data);
+                    setIsFetching(false);
+                } catch (error) {
+                    setError('Sorry, something went wrong. Please try again.');
+                    setIsFetching(false);
+                }
+            };
+
+            void fetchData();
+        }
+    }, [isFetching]);
+
+    useEffect(() => {
+        setTimeout(() => setIsFetching(true), 500);
+    }, []);
+
     return (
         <>
             <Head>
@@ -19,9 +54,15 @@ export default function Home() {
             </Head>
             <main className="flex min-h-screen flex-col items-center justify-center bg-white">
                 <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-                    <Results />
+                    <Results
+                        errorMessage={error !== null ? error : undefined}
+                        loading={isFetching}
+                        results={results}
+                    />
                 </div>
             </main>
         </>
     );
-}
+};
+
+export default Home;

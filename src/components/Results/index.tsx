@@ -1,24 +1,41 @@
-import { useEffect, useState } from 'react';
+import { Result } from '@/components/Results/Result';
+import { Spinner } from '@/components/Spinner';
+import type { Person } from '@/types/result';
 
 interface Props {
-    searchTerm: string;
+    errorMessage?: string;
+    loading: boolean;
+    results: Person[] | null;
 }
 
 export const Results = (props: Props) => {
-    const [results, setResults] = useState(null);
-    const [isFetching, setIsFetching] = useState(false);
+    if (props.results === null) {
+        return (
+            <div className="flex w-full">
+                <p>Enter a search term to begin.</p>
+            </div>
+        );
+    }
 
-    const fetchData = async () => {
-        const data = await fetch('https://gc-interview-api.azurewebsites.net/api/consultants');
+    if (props?.loading) {
+        return <Spinner />;
+    }
 
-        console.log(data);
-    };
+    if (props?.errorMessage) {
+        return (
+            <div className="flex w-full">
+                <p>{props.errorMessage}</p>
+            </div>
+        );
+    }
 
-    useEffect(() => {
-        if (isFetching) {
-            void fetchData();
-        }
-    }, [isFetching]);
+    const renderResults = () =>
+        props.results.map((result) => (
+            <Result
+                {...result}
+                key={`result${result.Title}`}
+            />
+        ));
 
-    return <div className="flex flex-col">Results!</div>;
+    return <div className="flex flex-col">{renderResults()}</div>;
 };
