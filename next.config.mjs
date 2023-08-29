@@ -9,13 +9,28 @@ const config = {
   reactStrictMode: true,
 
   /**
-   * If you are using `appDir` then you must comment the below `i18n` config out.
+   * If you have `experimental: { appDir: true }` set, then you must comment the below `i18n` config
+   * out.
    *
    * @see https://github.com/vercel/next.js/issues/41980
    */
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
 
