@@ -37,5 +37,5 @@ export const Results = (props: Props) => {
             />
         ));
 
-    return <div className="flex flex-col">{renderResults()}</div>;
+    return <div className="flex flex-col gap-[50px]">{renderResults()}</div>;
 };

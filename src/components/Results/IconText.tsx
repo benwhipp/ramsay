@@ -11,6 +11,6 @@ export const IconText = (props: Props) => (
         target="_blank"
     >
         {props.icon}
-        <p>{props.text}</p>
+        <p className="text-light-blue">{props.text}</p>
     </a>
 );
