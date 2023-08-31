@@ -25,6 +25,7 @@ export const Bar = () => {
             <Button
                 variant="filled"
                 content="Find Specialist"
+                className="px-[52px] py-10"
             />
         </div>
     );

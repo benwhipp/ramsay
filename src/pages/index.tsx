@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
+import { Nav } from '@/components/Nav';
 import { Results } from '@/components/Results';
 import { Search } from '@/components/Search';
+import { StickyMenu } from '@/components/StickyMenu';
 import type { Person } from '@/types/result';
 
 const Home = () => {
@@ -59,7 +61,9 @@ const Home = () => {
                     href="/favicon.ico"
                 />
             </Head>
-            <main className="flex min-h-screen flex-col items-center justify-center bg-white">
+            <main className="relative flex min-h-screen flex-col items-center justify-center bg-white">
+                <Nav />
+                <StickyMenu />
                 <Search />
                 <Results
                     errorMessage={error !== null ? error : undefined}

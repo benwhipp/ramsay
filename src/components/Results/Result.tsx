@@ -4,8 +4,8 @@ import HospitalPin from 'public/icons/hospital-pin.svg';
 import Phone from 'public/icons/phone.svg';
 
 import { Button } from '@/components/Button';
-import { Divider } from '@/components/Results/Divider';
-import { IconText } from '@/components/Results/IconText';
+import { Divider } from '@/components/Divider';
+import { IconText } from '@/components/IconText';
 import { ProfessionalBackground } from '@/components/Results/ProfessionalBackground';
 import type { Person } from '@/types/result';
 

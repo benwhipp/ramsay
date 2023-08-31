@@ -1,6 +1,6 @@
 import CloseIcon from 'public/icons/close.svg';
 
-import { Divider } from '@/components/Results/Divider';
+import { Divider } from '@/components/Divider';
 
 interface Props {
     clearSearch: () => void;

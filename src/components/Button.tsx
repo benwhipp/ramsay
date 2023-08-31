@@ -2,6 +2,7 @@ import { type AnimationProps, motion } from 'framer-motion';
 import { colors } from 'tailwind.config';
 
 interface Props {
+    className?: string;
     content: string;
     href?: string;
     onClick?: () => void;
@@ -53,7 +54,7 @@ export const Button = (props: Props) => {
         >
             <motion.button
                 onClick={props.onClick}
-                className={`flex flex-1 items-center justify-center px-[15px] py-[17px] font-semibold uppercase ${returnStyles()}`}
+                className={`flex flex-1 items-center justify-center px-[15px] py-[17px] font-semibold uppercase ${returnStyles()} ${props?.className} tracking-wider`}
                 initial="initial"
                 whileHover="hover"
                 variants={props?.variant === 'filled' ? filledVariants : outlinedVariants}
