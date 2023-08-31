@@ -7,7 +7,9 @@
         "dev": "next dev",
         "lint": "next lint",
         "start": "next start",
-        "prettier-format": "prettier --config .prettierrc 'src/**/*.tsx' --write"
+        "prettier-format": "prettier --config .prettierrc 'src/**/*.tsx' --write",
+        "deploy": "next build && git checkout deploy && git merge main && git push && git checkout main",
+        "deploy-fast": "git checkout deploy && git merge main && git push && git checkout main"
     },
     "dependencies": {
         "@t3-oss/env-nextjs": "^0.6.0",
