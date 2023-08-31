@@ -9,6 +9,12 @@ import { IconText } from '@/components/Results/IconText';
 import type { Person } from '@/types/result';
 
 export const Result = (props: Person) => {
+    const content = `Mr Aldam is a Consultant Orthopaedic Surgeon specialising in joint replacements, revision hip and knee surgery, arthroscopy, back problems, sciatica plus shoulder, ankle and elbow surgery.
+
+	This copy can be taken from ‘academic background’ etc. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. `;
+
     return (
         <div className="flex w-full flex-col gap-[50px]">
             <div className="flex w-full gap-[113px]">
