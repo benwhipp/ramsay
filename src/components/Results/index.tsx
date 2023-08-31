@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import { Header } from '@/components/Results/Header';
+import { More } from '@/components/Results/More';
 import { Pagnation } from '@/components/Results/Pagination';
 import { Result } from '@/components/Results/Result';
 import { Spinner } from '@/components/Spinner';
@@ -47,6 +48,7 @@ export const Results = () => {
             />
             {renderResults()}
             <Pagnation />
+            <More />
         </div>
     );
 };

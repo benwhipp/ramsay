@@ -8,7 +8,7 @@ import { Button } from '@/components/StickyMenu/Button';
 export const StickyMenu = () => {
     return (
         <div
-            className="fixed bottom-[138px] left-0 z-10 flex flex-col border-[1px] border-blue-grey bg-white"
+            className="fixed bottom-[138px] left-0 z-50 flex flex-col border-[1px] border-blue-grey bg-white"
             style={{ boxShadow: '0 3px 6px rgba(0, 0, 0, 0.1)' }}
         >
             <Button
