@@ -3,10 +3,7 @@ interface Props {
 }
 
 export const Spinner = (props: Props) => (
-    <div
-        id="spinner-container"
-        className="flex-1"
-    >
+    <div id="spinner-container">
         {props?.message && (
             <p
                 id="loading-message"

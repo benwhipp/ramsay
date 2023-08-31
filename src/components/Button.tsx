@@ -4,6 +4,7 @@ import { colors } from 'tailwind.config';
 interface Props {
     className?: string;
     content: string;
+    disabled?: boolean;
     href?: string;
     onClick?: () => void;
     variant: 'filled' | 'outlined';
@@ -58,6 +59,7 @@ export const Button = (props: Props) => {
                 initial="initial"
                 whileHover="hover"
                 variants={props?.variant === 'filled' ? filledVariants : outlinedVariants}
+                disabled={props?.disabled}
             >
                 {props.content}
             </motion.button>

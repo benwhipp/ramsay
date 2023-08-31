@@ -21,7 +21,7 @@ export const Bar = () => {
             <label className="text-deep-blue text-sm font-medium">{label}*</label>
             <input
                 placeholder={placeholder}
-                className="text-xl font-medium text-grey"
+                className="text-xl font-medium text-grey focus-visible:outline-none"
                 onChange={(e) => (refValue.current = e.target.value)}
             />
         </div>
@@ -38,6 +38,8 @@ export const Bar = () => {
                 searchTerm: treatmentName.current,
                 postcode: postcodeCity.current,
             });
+            treatmentName.current = '';
+            postcodeCity.current = '';
         }
     };
 
@@ -59,6 +61,8 @@ export const Bar = () => {
                 content="Find Specialist"
                 className="px-[52px] py-10"
                 onClick={handleClick}
+                // Client-side validation would be added and a disabled state controller here
+                // disabled={}
             />
         </div>
     );

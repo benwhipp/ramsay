@@ -12,21 +12,25 @@ export const Results = () => {
         useContext(SearchResultsContext);
 
     if (isFetching) {
-        return <Spinner />;
+        return (
+            <div className="flex w-full justify-center p-20">
+                <Spinner />
+            </div>
+        );
     }
 
     if (results === null) {
         return (
-            <div className="flex w-full">
-                <p>Enter a search term to begin.</p>
+            <div className="flex w-full justify-center p-20">
+                <p className="text-xl font-medium text-light-blue">Enter a search term to begin.</p>
             </div>
         );
     }
 
     if (error !== null) {
         return (
-            <div className="flex w-full">
-                <p>{error}</p>
+            <div className="flex w-full justify-center p-20">
+                <p className="text-xl font-medium text-light-blue">{error}</p>
             </div>
         );
     }

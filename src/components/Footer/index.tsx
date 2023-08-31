@@ -3,6 +3,7 @@ import Envelope from 'public/icons/envelope.svg';
 import Phone from 'public/icons/phone.svg';
 
 import { Divider } from '@/components/Divider';
+import { Columns } from '@/components/Footer/Columns';
 import { SocialLinks } from '@/components/Footer/SocialLinks';
 import { IconText } from '@/components/IconText';
 
@@ -13,7 +14,7 @@ export const Footer = () => {
         <footer className="flex w-full flex-col items-center bg-dark-blue pb-[50px] pt-20">
             <div className="flex w-full max-w-[1640px] flex-col gap-[50px]">
                 <div className="flex w-full justify-between">
-                    <div className="flex max-w-[276px] flex-col gap-[30px]">
+                    <div className="flex max-w-[276px] flex-col items-start gap-[30px]">
                         <div className="relative aspect-[268/77] w-full">
                             <Image
                                 src={'/footer-logos.png'}
@@ -48,6 +49,7 @@ export const Footer = () => {
                             href="mailto:enquiries@ashsteadhospital.co.uk"
                         />
                     </div>
+                    <Columns />
                 </div>
                 <div className="flex flex-col gap-[30px]">
                     <Divider color="bg-lighter-grey opacity-[0.2]" />
