@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
 import { Results } from '@/components/Results';
 import { Search } from '@/components/Search';
@@ -28,6 +29,7 @@ const Home = () => {
                     <Search />
                     <Results />
                 </SearchResultsContext.Provider>
+                <Footer />
             </main>
         </>
     );

@@ -15,14 +15,14 @@ export const StickyMenu = () => {
                 icon={<Phone className="h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue" />}
                 href="tel:08082582079"
             />
-            <Divider lighter />
+            <Divider color="bg-blue-grey" />
             <Button
                 icon={
                     <Envelope className="h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue" />
                 }
-                href="mailto:ramsayhealthcare@gmail.com"
+                href="mailto:enquiries@ashsteadhospital.co.uk"
             />
-            <Divider lighter />
+            <Divider color="bg-blue-grey" />
             <Button
                 icon={
                     <LocationDot className="h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue" />

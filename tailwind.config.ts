@@ -6,11 +6,11 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 export const colors = {
     'light-blue': '#0073BB',
     'dark-blue': '#0B2F50',
-    'blue-black': '#0B2F50',
     'blue-grey': '#DBE3EA',
     grey: '#666666',
     'light-grey': '#CCCCCC',
-    'lighter-grey': '#EAEBEA',
+    'lighter-grey': '#E6E6E6',
+    'lightest-grey': '#EAEBEA',
     white: '#ffffff',
 };
 

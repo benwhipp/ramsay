@@ -21,7 +21,7 @@ export const Pagnation = () => {
         const styles =
             pageNumber === page
                 ? 'bg-light-blue text-white'
-                : 'border-[1px] border-lighter-grey text-light-blue';
+                : 'border-[1px] border-lightest-grey text-light-blue';
 
         return (
             <Button
@@ -59,13 +59,13 @@ export const Pagnation = () => {
                 <div className="flex">
                     {renderButtons()}
                     <Button
-                        className="border-lighter-grey border-[1px]"
+                        className="border-lightest-grey border-[1px]"
                         onClick={nextPage}
                     >
                         <ChevronRight className="h-[10px] fill-light-blue" />
                     </Button>
                     <Button
-                        className="border-lighter-grey border-[1px]"
+                        className="border-lightest-grey border-[1px]"
                         onClick={lastPage}
                     >
                         <ChevronsRight className="h-[10px] fill-light-blue" />

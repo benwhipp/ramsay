@@ -1,0 +1,24 @@
+<svg id="Search_dropdown" data-name="Search dropdown" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="157" viewBox="0 0 1440 157">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="mask" width="1440" height="157" transform="translate(0 -85)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_187" data-name="Group 187">
+    <path id="Path_2" data-name="Path 2" d="M26.722,15.611A11.111,11.111,0,1,1,15.611,4.5,11.111,11.111,0,0,1,26.722,15.611Z" transform="translate(1271.5 80.5)" fill="none" stroke="#0b2f50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_3" data-name="Path 3" d="M31.017,31.017l-6.042-6.042" transform="translate(1269.983 78.983)" fill="none" stroke="#0b2f50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+  <g id="Mask_Group_8" data-name="Mask Group 8" transform="translate(0 85)" clip-path="url(#clip-path)">
+    <g id="Search_dropdown-2" data-name="Search dropdown" transform="translate(0 -5)">
+      <rect id="Rectangle_193" data-name="Rectangle 193" width="1440" height="192" transform="translate(0 77)" fill="#fff"/>
+      <g id="Group_73" data-name="Group 73" transform="translate(0 -23)">
+        <line id="Line_7" data-name="Line 7" x2="673" transform="translate(384 228)" fill="none" stroke="#0b2f50" stroke-width="1" opacity="0.346"/>
+        <text id="Type_words_and_hit_enter" data-name="Type words and hit enter" transform="translate(384 189)" fill="#5e6a76" font-size="30" font-family="ProximaNova-Regular, Proxima Nova" opacity="0.3"><tspan x="0" y="0">Type words and hit enter</tspan></text>
+        <g id="Group_71" data-name="Group 71">
+          <path id="Path_2-2" data-name="Path 2" d="M32.056,18.278A13.778,13.778,0,1,1,18.278,4.5,13.778,13.778,0,0,1,32.056,18.278Z" transform="translate(1012.5 159.5)" fill="none" stroke="#0b2f50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path id="Path_3-2" data-name="Path 3" d="M32.467,32.467l-7.492-7.492" transform="translate(1015.533 162.533)" fill="none" stroke="#0b2f50" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

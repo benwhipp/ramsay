@@ -1,10 +1,11 @@
 import { motion, useAnimate } from 'framer-motion';
 
 interface Props {
+    color?: 'white' | 'grey';
     href?: string;
     icon: JSX.Element;
     text: string;
-    white?: boolean;
+    textClassName?: string;
 }
 
 export const IconText = (props: Props) => {
@@ -28,11 +29,27 @@ export const IconText = (props: Props) => {
         >
             <div className="flex items-center gap-[10px]">
                 {props.icon}
-                <p className={props?.white ? 'text-white' : 'text-light-blue'}>{props.text}</p>
+                <p
+                    className={`${
+                        props?.color
+                            ? props.color === 'white'
+                                ? 'text-white'
+                                : 'text-blue-grey'
+                            : 'text-light-blue'
+                    } ${props?.textClassName}`}
+                >
+                    {props.text}
+                </p>
             </div>
             <motion.div
                 ref={lineRef}
-                className={`h-[2px] ${props?.white ? 'bg-white' : 'bg-light-blue'}`}
+                className={`h-[2px] ${
+                    props?.color
+                        ? props.color === 'white'
+                            ? 'bg-white'
+                            : 'bg-blue-grey'
+                        : 'bg-light-blue'
+                }`}
                 initial={{ width: 0 }}
             />
         </motion.a>
