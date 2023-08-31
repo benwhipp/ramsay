@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 
 import { Header } from '@/components/Results/Header';
+import { Pagnation } from '@/components/Results/Pagination';
 import { Result } from '@/components/Results/Result';
 import { Spinner } from '@/components/Spinner';
 import { SearchResultsContext } from '@/contexts/SearchResults/Context';
 
 export const Results = () => {
-    const { results, isFetching, error } = useContext(SearchResultsContext);
+    const { results, isFetching, error, page } = useContext(SearchResultsContext);
 
     if (results === null) {
         return (
@@ -29,7 +30,7 @@ export const Results = () => {
     }
 
     const renderResults = () =>
-        results.map((result) => (
+        results[page].map((result) => (
             <Result
                 {...result}
                 key={`result${result.Title}`}
@@ -44,6 +45,7 @@ export const Results = () => {
                 clearSearch={() => {}}
             />
             {renderResults()}
+            <Pagnation />
         </div>
     );
 };

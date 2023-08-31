@@ -4,9 +4,24 @@ import type { SearchResultsAttributes } from '@/contexts/SearchResults/Context';
 import type { Person } from '@/types/result';
 
 export const useSearchResultsData = (): SearchResultsAttributes => {
-    const [results, setResults] = useState<Person[] | null>(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [numberOfPages, setNumberOfPages] = useState(0);
+    const [results, setResults] = useState<Person[][] | null>(null);
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [page, setPage] = useState(0);
+    const pageLength = 5;
+    const totalNumberOfResults = useRef(0);
+
+    const nextPage = () => {
+        if (page < numberOfPages - 1) {
+            setPage(page + 1);
+        }
+    };
+
+    const lastPage = () => {
+        setPage(numberOfPages - 1);
+    };
 
     useEffect(() => {
         if (isFetching) {
@@ -24,7 +39,24 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
 
                     const data = (await response.json()) as Person[];
 
-                    setResults(data);
+                    totalNumberOfResults.current = data.length;
+
+                    const splitPages = () => {
+                        const paginatedArray = [];
+
+                        for (let i = 0; i < data.length; i += pageLength) {
+                            paginatedArray.push(data.slice(i, i + pageLength));
+                        }
+
+                        return paginatedArray;
+                    };
+
+                    const paginatedArray = splitPages();
+
+                    console.log('paginatedArray', paginatedArray);
+
+                    setResults(paginatedArray);
+                    setNumberOfPages(paginatedArray.length);
                 } catch (error) {
                     setError('Sorry, something went wrong. Please try again.');
                 }
@@ -46,10 +78,18 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
 
     return {
         results,
-        setResults,
         isFetching,
         setIsFetching,
         error,
+        page,
+        setPage,
+        numberOfPages,
+        searchTerm,
+        setSearchTerm,
         setError,
+        pageLength,
+        totalNumberOfResults: totalNumberOfResults.current,
+        nextPage,
+        lastPage,
     };
 };

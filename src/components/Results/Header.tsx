@@ -21,7 +21,7 @@ export const Header = (props: Props) => {
                         onClick={props.clearSearch}
                         className="flex items-center gap-1.5"
                     >
-                        <CloseIcon classname="h-[20px] w-[20px]" />
+                        <CloseIcon className="h-[20px] w-[20px]" />
                         Clear Search
                     </button>
                 </div>

@@ -25,8 +25,6 @@ export const Result = (props: Person) => {
         // Remove any other tab characters from the valid paragraph strings, again caused by hard-coded string value
         .map((e) => e.replace('\t', ''));
 
-    console.log('backgroundArray', backgroundArray);
-
     return (
         <div className="flex w-full flex-col gap-[50px]">
             <div className="flex w-full gap-[113px]">
