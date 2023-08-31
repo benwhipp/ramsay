@@ -4,6 +4,7 @@ import HospitalPin from 'public/icons/hospital-pin.svg';
 import Phone from 'public/icons/phone.svg';
 
 import { Button } from '@/components/Button';
+import { Divider } from '@/components/Results/Divider';
 import { IconText } from '@/components/Results/IconText';
 import type { Person } from '@/types/result';
 
@@ -59,7 +60,7 @@ export const Result = (props: Person) => {
                     />
                 </div>
             </div>
-            <div className="bg-light-grey h-[1px] w-full" />
+            <Divider />
         </div>
     );
 };

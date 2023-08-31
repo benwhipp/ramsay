@@ -1,3 +1,4 @@
+import { Header } from '@/components/Results/Header';
 import { Result } from '@/components/Results/Result';
 import { Spinner } from '@/components/Spinner';
 import type { Person } from '@/types/result';
@@ -37,5 +38,14 @@ export const Results = (props: Props) => {
             />
         ));
 
-    return <div className="flex flex-col gap-[50px]">{renderResults()}</div>;
+    return (
+        <div className="flex flex-col gap-[50px]">
+            <Header
+                postcode="CT20 2UH"
+                searchTerm="hip"
+                clearSearch={() => {}}
+            />
+            {renderResults()}
+        </div>
+    );
 };
