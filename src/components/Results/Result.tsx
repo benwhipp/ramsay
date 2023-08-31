@@ -6,14 +6,26 @@ import Phone from 'public/icons/phone.svg';
 import { Button } from '@/components/Button';
 import { Divider } from '@/components/Results/Divider';
 import { IconText } from '@/components/Results/IconText';
+import { ProfessionalBackground } from '@/components/Results/ProfessionalBackground';
 import type { Person } from '@/types/result';
 
 export const Result = (props: Person) => {
-    const content = `Mr Aldam is a Consultant Orthopaedic Surgeon specialising in joint replacements, revision hip and knee surgery, arthroscopy, back problems, sciatica plus shoulder, ankle and elbow surgery.
-
+    // This is example content to demonstrate View More functionality, as the content from the mock API doesn't contain multiple paragraphs. This can be replaced by props.ProfessionalBackground in order to use that data
+    const professionalBackground = `Mr Aldam is a Consultant Orthopaedic Surgeon specialising in joint replacements, revision hip and knee surgery, arthroscopy, back problems, sciatica plus shoulder, ankle and elbow surgery.
+	
 	This copy can be taken from ‘academic background’ etc. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 	
-	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. `;
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.`;
+
+    const backgroundArray = professionalBackground
+        // Split by new line
+        .split(/\r?\n/)
+        // Remove any empty lines and remove tab characters caused by hard-coded string value
+        .filter((i) => i !== '' && i !== '\t')
+        // Remove any other tab characters from the valid paragraph strings, again caused by hard-coded string value
+        .map((e) => e.replace('\t', ''));
+
+    console.log('backgroundArray', backgroundArray);
 
     return (
         <div className="flex w-full flex-col gap-[50px]">
@@ -39,6 +51,7 @@ export const Result = (props: Person) => {
                                 <IconText
                                     icon={<Phone className="fill-light-blue" />}
                                     text={props.PhoneNo}
+                                    href={`tel:${props.PhoneNo}`}
                                 />
                                 <IconText
                                     icon={<ExternalLink className="fill-light-blue" />}
@@ -53,7 +66,7 @@ export const Result = (props: Person) => {
                             </div>
                         </div>
                     </div>
-                    <p className="text-grey">{props.ProfessionalBackground}</p>
+                    <ProfessionalBackground content={backgroundArray} />
                 </div>
                 <div className="flex flex-col justify-stretch gap-[15px]">
                     <Button

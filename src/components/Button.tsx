@@ -20,8 +20,6 @@ export const Button = (props: Props) => {
         return `text-white`;
     };
 
-    console.log('theme', fullConfig.theme);
-
     const outlinedVariants: AnimationProps['variants'] = {
         initial: {
             backgroundColor: 'rgba(0, 115, 187, 0)',
@@ -29,7 +27,7 @@ export const Button = (props: Props) => {
         },
         hover: {
             backgroundColor: 'rgba(0, 115, 187, 0.7)',
-            color: 'white',
+            color: '#ffffff',
             transition: {
                 duration: 0.4,
                 ease: 'easeOut',
