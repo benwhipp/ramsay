@@ -1,16 +1,14 @@
+import { useContext } from 'react';
+
 import { Header } from '@/components/Results/Header';
 import { Result } from '@/components/Results/Result';
 import { Spinner } from '@/components/Spinner';
-import type { Person } from '@/types/result';
+import { SearchResultsContext } from '@/contexts/SearchResults/Context';
 
-interface Props {
-    errorMessage?: string;
-    loading: boolean;
-    results: Person[] | null;
-}
+export const Results = () => {
+    const { results, isFetching, error } = useContext(SearchResultsContext);
 
-export const Results = (props: Props) => {
-    if (props.results === null) {
+    if (results === null) {
         return (
             <div className="flex w-full">
                 <p>Enter a search term to begin.</p>
@@ -18,20 +16,20 @@ export const Results = (props: Props) => {
         );
     }
 
-    if (props?.loading) {
+    if (isFetching) {
         return <Spinner />;
     }
 
-    if (props?.errorMessage) {
+    if (error !== null) {
         return (
             <div className="flex w-full">
-                <p>{props.errorMessage}</p>
+                <p>{error}</p>
             </div>
         );
     }
 
     const renderResults = () =>
-        props.results.map((result) => (
+        results.map((result) => (
             <Result
                 {...result}
                 key={`result${result.Title}`}

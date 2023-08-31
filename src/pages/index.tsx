@@ -1,53 +1,13 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
 
 import { Nav } from '@/components/Nav';
 import { Results } from '@/components/Results';
 import { Search } from '@/components/Search';
 import { StickyMenu } from '@/components/StickyMenu';
-import type { Person } from '@/types/result';
+import { SearchResultsContext } from '@/contexts/SearchResults/Context';
+import { useSearchResultsData } from '@/contexts/SearchResults/Hook';
 
 const Home = () => {
-    const [results, setResults] = useState<Person[] | null>(null);
-    const [isFetching, setIsFetching] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        if (isFetching) {
-            const fetchData = async () => {
-                setResults(null);
-                setError(null);
-                try {
-                    const response = await fetch(
-                        'https://gc-interview-api.azurewebsites.net/api/consultants',
-                    );
-
-                    if (!response.ok) {
-                        throw new Error('HTTP error ' + response.status);
-                    }
-
-                    const data = (await response.json()) as Person[];
-
-                    setResults(data);
-                } catch (error) {
-                    setError('Sorry, something went wrong. Please try again.');
-                }
-            };
-
-            void fetchData();
-        }
-    }, [isFetching]);
-
-    useEffect(() => {
-        if (results !== null || error !== null) {
-            setIsFetching(false);
-        }
-    }, [results, error]);
-
-    useEffect(() => {
-        setTimeout(() => setIsFetching(true), 500);
-    }, []);
-
     return (
         <>
             <Head>
@@ -64,12 +24,10 @@ const Home = () => {
             <main className="relative flex min-h-screen flex-col items-center justify-center bg-white">
                 <Nav />
                 <StickyMenu />
-                <Search />
-                <Results
-                    errorMessage={error !== null ? error : undefined}
-                    loading={isFetching}
-                    results={results}
-                />
+                <SearchResultsContext.Provider value={useSearchResultsData()}>
+                    <Search />
+                    <Results />
+                </SearchResultsContext.Provider>
             </main>
         </>
     );
