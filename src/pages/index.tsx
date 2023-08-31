@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
 import { Results } from '@/components/Results';
+import { Search } from '@/components/Search';
 import type { Person } from '@/types/result';
 
 const Home = () => {
@@ -59,13 +60,12 @@ const Home = () => {
                 />
             </Head>
             <main className="flex min-h-screen flex-col items-center justify-center bg-white">
-                <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-                    <Results
-                        errorMessage={error !== null ? error : undefined}
-                        loading={isFetching}
-                        results={results}
-                    />
-                </div>
+                <Search />
+                <Results
+                    errorMessage={error !== null ? error : undefined}
+                    loading={isFetching}
+                    results={results}
+                />
             </main>
         </>
     );

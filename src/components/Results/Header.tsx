@@ -10,7 +10,7 @@ interface Props {
 
 export const Header = (props: Props) => {
     return (
-        <div className="flex flex-col gap-[50px]">
+        <div className="flex w-full flex-col gap-[50px]">
             <div className="flex flex-col">
                 <h2 className="text-[40px] text-dark-blue">Search Results</h2>
                 <div className="flex items-center gap-5">

@@ -39,7 +39,7 @@ export const Results = (props: Props) => {
         ));
 
     return (
-        <div className="flex flex-col gap-[50px]">
+        <div className="container flex flex-col items-center justify-center gap-12 gap-[50px] px-4 py-16">
             <Header
                 postcode="CT20 2UH"
                 searchTerm="hip"
