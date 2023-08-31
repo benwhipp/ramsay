@@ -6,8 +6,16 @@ import { Button } from '@/components/Results/Pagination/Button';
 import { SearchResultsContext } from '@/contexts/SearchResults/Context';
 
 export const Pagnation = () => {
-    const { page, setPage, numberOfPages, pageLength, totalNumberOfResults, nextPage, lastPage } =
-        useContext(SearchResultsContext);
+    const {
+        page,
+        setPage,
+        numberOfPages,
+        pageLength,
+        totalNumberOfResults,
+        nextPage,
+        lastPage,
+        results,
+    } = useContext(SearchResultsContext);
 
     const NumberButton = ({ pageNumber }: { pageNumber: number }) => {
         const styles =
@@ -42,25 +50,27 @@ export const Pagnation = () => {
     };
 
     return (
-        <div className="flex flex-col">
-            <p className="text-xl text-black">
-                Showing <span className="text-light-blue">{pageLength}</span> of{' '}
-                <span className="text-light-blue">{totalNumberOfResults}</span> results
-            </p>
-            <div className="flex">
-                {renderButtons()}
-                <Button
-                    className="border-lighter-grey border-[1px]"
-                    onClick={nextPage}
-                >
-                    <ChevronRight className="h-[10px] fill-light-blue" />
-                </Button>
-                <Button
-                    className="border-lighter-grey border-[1px]"
-                    onClick={lastPage}
-                >
-                    <ChevronsRight className="h-[10px] fill-light-blue" />
-                </Button>
+        <div className="flex w-full">
+            <div className="flex flex-col gap-[30px]">
+                <p className="text-xl text-black">
+                    Showing <span className="text-light-blue">{results[page]?.length}</span> of{' '}
+                    <span className="text-light-blue">{totalNumberOfResults}</span> results
+                </p>
+                <div className="flex">
+                    {renderButtons()}
+                    <Button
+                        className="border-lighter-grey border-[1px]"
+                        onClick={nextPage}
+                    >
+                        <ChevronRight className="h-[10px] fill-light-blue" />
+                    </Button>
+                    <Button
+                        className="border-lighter-grey border-[1px]"
+                        onClick={lastPage}
+                    >
+                        <ChevronsRight className="h-[10px] fill-light-blue" />
+                    </Button>
+                </div>
             </div>
         </div>
     );

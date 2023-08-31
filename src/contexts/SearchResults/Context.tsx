@@ -3,6 +3,7 @@ import { createContext } from 'react';
 import type { Person } from '@/types/result';
 
 export interface SearchResultsAttributes {
+    clearSearch: () => void;
     error: string | null;
     isFetching: boolean;
     lastPage: () => void;
@@ -11,11 +12,14 @@ export interface SearchResultsAttributes {
     page: number;
     pageLength: number;
     results: Person[][] | null;
-    searchTerm: string;
+    searchTermPostcode: {
+        postcode: string;
+        searchTerm: string;
+    };
     setError: (error: string | null) => void;
     setIsFetching: (isFetching: boolean) => void;
     setPage: (page: number) => void;
-    setSearchTerm: (searchTerm: string) => void;
+    setSearchTermPostcode: (searchTermPostcode: { postcode: string; searchTerm: string }) => void;
     totalNumberOfResults: number;
 }
 
@@ -27,11 +31,12 @@ export const SearchResultsContext = createContext<SearchResultsAttributes>({
     page: 0,
     setPage: () => {},
     numberOfPages: 0,
-    searchTerm: '',
-    setSearchTerm: () => {},
     setError: () => {},
     pageLength: 0,
     totalNumberOfResults: 0,
     nextPage: () => {},
     lastPage: () => {},
+    searchTermPostcode: { searchTerm: '', postcode: '' },
+    setSearchTermPostcode: () => {},
+    clearSearch: () => {},
 });

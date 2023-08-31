@@ -4,7 +4,10 @@ import type { SearchResultsAttributes } from '@/contexts/SearchResults/Context';
 import type { Person } from '@/types/result';
 
 export const useSearchResultsData = (): SearchResultsAttributes => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [searchTermPostcode, setSearchTermPostcode] = useState({
+        searchTerm: '',
+        postcode: '',
+    });
     const [numberOfPages, setNumberOfPages] = useState(0);
     const [results, setResults] = useState<Person[][] | null>(null);
     const [isFetching, setIsFetching] = useState(false);
@@ -21,6 +24,11 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
 
     const lastPage = () => {
         setPage(numberOfPages - 1);
+    };
+
+    const clearSearch = () => {
+        setSearchTermPostcode({ searchTerm: '', postcode: '' });
+        setResults(null);
     };
 
     useEffect(() => {
@@ -62,7 +70,8 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
                 }
             };
 
-            void fetchData();
+            // Simulated server response delay to demonstrate loading state
+            setTimeout(() => void fetchData(), 1000);
         }
     }, [isFetching]);
 
@@ -73,8 +82,15 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
     }, [results, error]);
 
     useEffect(() => {
-        setTimeout(() => setIsFetching(true), 500);
-    }, []);
+        if (
+            searchTermPostcode?.postcode &&
+            searchTermPostcode.postcode.length > 0 &&
+            searchTermPostcode?.searchTerm &&
+            searchTermPostcode.searchTerm.length > 0
+        ) {
+            setIsFetching(true);
+        }
+    }, [searchTermPostcode]);
 
     return {
         results,
@@ -84,12 +100,13 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
         page,
         setPage,
         numberOfPages,
-        searchTerm,
-        setSearchTerm,
         setError,
         pageLength,
         totalNumberOfResults: totalNumberOfResults.current,
         nextPage,
         lastPage,
+        searchTermPostcode,
+        setSearchTermPostcode,
+        clearSearch,
     };
 };

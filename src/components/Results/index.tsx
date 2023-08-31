@@ -7,7 +7,12 @@ import { Spinner } from '@/components/Spinner';
 import { SearchResultsContext } from '@/contexts/SearchResults/Context';
 
 export const Results = () => {
-    const { results, isFetching, error, page } = useContext(SearchResultsContext);
+    const { results, isFetching, error, page, searchTermPostcode, clearSearch } =
+        useContext(SearchResultsContext);
+
+    if (isFetching) {
+        return <Spinner />;
+    }
 
     if (results === null) {
         return (
@@ -15,10 +20,6 @@ export const Results = () => {
                 <p>Enter a search term to begin.</p>
             </div>
         );
-    }
-
-    if (isFetching) {
-        return <Spinner />;
     }
 
     if (error !== null) {
@@ -40,9 +41,9 @@ export const Results = () => {
     return (
         <div className="container flex flex-col items-center justify-center gap-12 gap-[50px] px-4 py-16">
             <Header
-                postcode="CT20 2UH"
-                searchTerm="hip"
-                clearSearch={() => {}}
+                postcode={searchTermPostcode.postcode}
+                searchTerm={searchTermPostcode.searchTerm}
+                clearSearch={clearSearch}
             />
             {renderResults()}
             <Pagnation />
