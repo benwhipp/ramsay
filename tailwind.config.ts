@@ -2,6 +2,17 @@
 import { type Config } from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
 
+// Exported separately for ease of referencing elsewhere within js
+export const colors = {
+    'light-blue': '#0073BB',
+    'dark-blue': '#0B2F50',
+    'blue-black': '#0B2F50',
+    'blue-grey': '#DBE3EA',
+    grey: '#666666',
+    'light-grey': '#CCCCCC',
+    white: '#ffffff',
+};
+
 export default {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
     theme: {
@@ -9,14 +20,7 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            colors: {
-                'light-blue': '#0073BB',
-                'dark-blue': '#0B2F50',
-                'blue-black': '#0B2F50',
-                'blue-grey': '#DBE3EA',
-                grey: '#666666',
-                'light-grey': '#CCCCCC',
-            },
+            colors,
             screens: {
                 xs: '480px',
             },
