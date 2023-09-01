@@ -1,6 +1,4 @@
 import Image from 'next/image';
-// Issues with getting search-icon svg to display correctly - leaving as a font-awesome icon for now
-import MagnifyingGlass from 'public/icons/magnifying-glass.svg';
 import { useState } from 'react';
 
 import { Dropdown } from '@/components/Nav/Dropdown';
@@ -12,6 +10,7 @@ import type { NavlinkProps } from '@/types/nav';
 export const MainBar = () => {
     const [dropdownContent, setDropdownContent] = useState<null | NavlinkProps>(null);
     const [searchDropdownOpen, setSearchDropdownOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const navlinks: NavlinkProps[] = [
         {
@@ -93,6 +92,9 @@ export const MainBar = () => {
                         height={70}
                         src="/ramsay-logo.png"
                         alt="Ramsay Health Care Logo"
+                        placeholder="blur"
+                        // solid pixel of blue-grey color
+                        blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8/fjVfwAI8gOp9hzYCgAAAABJRU5ErkJggg=="
                     />
                 </div>
                 <div className="hidden gap-1 lg:flex xl:gap-6 2xl:gap-8">

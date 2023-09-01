@@ -38,6 +38,9 @@ export const Result = (props: Person) => {
                             width={86}
                             height={86}
                             alt={`Image of ${props.Title}`}
+                            placeholder="blur"
+                            // solid pixel of blue-grey color
+                            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8/fjVfwAI8gOp9hzYCgAAAABJRU5ErkJggg=="
                         />
                         <div className="flex flex-col gap-2.5">
                             <h3 className="text-2xl font-medium text-dark-blue">{props.Title}</h3>
