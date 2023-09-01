@@ -14,7 +14,7 @@ export const Dropdown = (props: Props) => {
         <AnimatePresence>
             {props.content !== null && (
                 <motion.div
-                    className="absolute bottom-0 z-30 flex w-full translate-y-full flex-col items-center bg-dark-blue pb-7 pt-[42px]"
+                    className="absolute bottom-0 left-0 z-10 flex w-full translate-y-full flex-col items-center bg-dark-blue pb-7 pt-[42px]"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

@@ -5,17 +5,21 @@
     https://pnpm.io/installation
 
 -   Install node modules
-    ```pnpm install```
+
+    `pnpm install`
 
 -   Start dev server
-    ```pnpm dev```
+
+    `pnpm dev`
 
 -   Open http://localhost:3000 to view the application
 
 # To deploy
 
 -   With a build step to check for errors
-    ```pnpm deploy```
+
+    `pnpm deploy`
 
 -   Without the build step
-    ```pnpm deploy-fast```
+
+    `pnpm deploy-fast`

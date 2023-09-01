@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { Dropdown } from '@/components/Nav/Dropdown';
+import { MobileMenu } from '@/components/Nav/MobileMenu';
+import { MobileMenuIcon } from '@/components/Nav/MobileMenuIcon';
 import { NavLink } from '@/components/Nav/NavLink';
 import { SearchButton } from '@/components/Nav/SearchButton';
 import { SearchDropdown } from '@/components/Nav/SearchDropdown';
@@ -84,8 +86,14 @@ export const MainBar = () => {
         ));
 
     return (
-        <div className="relative flex w-full justify-center border-b-[1px] border-b-blue-grey bg-white px-6 md:border-b-0 xl:px-12">
-            <div className="flex max-w-[1640px] flex-1 justify-between">
+        <div className="relative flex w-full flex-col justify-center overflow-scroll border-b-[1px] border-b-blue-grey bg-white px-6 transition-all md:border-b-0 xl:px-12">
+            <div className="flex max-w-[1640px] flex-1 items-center justify-between lg:items-stretch">
+                <div className="lg:hidden">
+                    <MobileMenuIcon
+                        isOpen={mobileMenuOpen}
+                        setIsOpen={setMobileMenuOpen}
+                    />
+                </div>
                 <div className="py-[25px]">
                     <Image
                         width={80}
@@ -104,7 +112,18 @@ export const MainBar = () => {
                         dropdownOpen={searchDropdownOpen}
                     />
                 </div>
+                <div className="lg:hidden">
+                    <SearchButton
+                        setDropdownOpen={setSearchDropdownOpen}
+                        dropdownOpen={searchDropdownOpen}
+                        large
+                    />
+                </div>
             </div>
+            <MobileMenu
+                open={mobileMenuOpen}
+                navLinks={navlinks}
+            />
             <Dropdown content={dropdownContent} />
             <SearchDropdown open={searchDropdownOpen} />
         </div>

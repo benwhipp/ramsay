@@ -11,7 +11,7 @@ export const SearchDropdown = (props: Props) => {
         <AnimatePresence>
             {props.open && (
                 <motion.div
-                    className="absolute bottom-0 z-20 flex w-full translate-y-full justify-center bg-white"
+                    className="absolute bottom-0 z-20 flex w-full translate-y-full justify-center bg-white px-6"
                     initial={{ height: 0, paddingTop: 0, paddingBottom: 0 }}
                     animate={{ height: 'auto', paddingTop: 64, paddingBottom: 64 }}
                     exit={{ height: 0, paddingTop: 0, paddingBottom: 0 }}
