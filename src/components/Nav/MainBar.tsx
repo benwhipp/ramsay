@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import { Dropdown } from '@/components/Nav/Dropdown';
 import { NavLink } from '@/components/Nav/NavLink';
+import { SearchButton } from '@/components/Nav/SearchButton';
 import { SearchDropdown } from '@/components/Nav/SearchDropdown';
 import type { NavlinkProps } from '@/types/nav';
 
@@ -84,7 +85,7 @@ export const MainBar = () => {
         ));
 
     return (
-        <div className="relative flex w-full justify-center bg-white px-6 xl:px-12">
+        <div className="relative flex w-full justify-center border-b-[1px] border-b-blue-grey bg-white px-6 md:border-b-0 xl:px-12">
             <div className="flex max-w-[1640px] flex-1 justify-between">
                 <div className="py-[25px]">
                     <Image
@@ -96,12 +97,10 @@ export const MainBar = () => {
                 </div>
                 <div className="hidden gap-1 lg:flex xl:gap-6 2xl:gap-8">
                     {renderNavlinks()}
-                    <button
-                        className="flex items-center"
-                        onClick={() => setSearchDropdownOpen(!searchDropdownOpen)}
-                    >
-                        <MagnifyingGlass className="h-[22px] w-[22px] fill-dark-blue" />
-                    </button>
+                    <SearchButton
+                        setDropdownOpen={setSearchDropdownOpen}
+                        dropdownOpen={searchDropdownOpen}
+                    />
                 </div>
             </div>
             <Dropdown content={dropdownContent} />
