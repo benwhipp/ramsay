@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import Envelope from 'public/icons/envelope.svg';
-import Phone from 'public/icons/phone.svg';
 
 import { Divider } from '@/components/Divider';
 import { Columns } from '@/components/Footer/Columns';

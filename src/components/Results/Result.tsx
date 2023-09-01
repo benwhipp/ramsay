@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import ExternalLink from 'public/icons/external-link.svg';
 import HospitalPin from 'public/icons/hospital-pin.svg';
-import Phone from 'public/icons/phone.svg';
 
 import { Button } from '@/components/Button';
 import { Divider } from '@/components/Divider';

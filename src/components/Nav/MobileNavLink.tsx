@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, useAnimate } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Minus from 'public/icons/minus.svg';
 import Plus from 'public/icons/plus.svg';
 import { useState } from 'react';

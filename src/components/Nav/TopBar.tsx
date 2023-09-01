@@ -1,4 +1,3 @@
-import Phone from 'public/icons/phone.svg';
 import { useState } from 'react';
 
 import { Button } from '@/components/Button';

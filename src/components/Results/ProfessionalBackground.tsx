@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import { ViewMore } from '@/components/Results/ViewMore';
 
@@ -9,7 +9,6 @@ interface Props {
 
 export const ProfessionalBackground = (props: Props) => {
     const [isOpen, setIsOpen] = useState(false);
-    const firstParagraphRef = useRef();
 
     // Only display View More if the background contains more than one paragraph
     if (Array.isArray(props.content)) {

@@ -1,5 +1,4 @@
 import { type AnimationProps, motion } from 'framer-motion';
-import { colors } from 'tailwind.config';
 
 interface Props {
     className?: string;
