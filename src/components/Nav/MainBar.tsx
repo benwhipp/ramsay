@@ -5,10 +5,12 @@ import { useState } from 'react';
 
 import { Dropdown } from '@/components/Nav/Dropdown';
 import { NavLink } from '@/components/Nav/NavLink';
+import { SearchDropdown } from '@/components/Nav/SearchDropdown';
 import type { NavlinkProps } from '@/types/nav';
 
 export const MainBar = () => {
     const [dropdownContent, setDropdownContent] = useState<null | NavlinkProps>(null);
+    const [searchDropdownOpen, setSearchDropdownOpen] = useState(false);
 
     const navlinks: NavlinkProps[] = [
         {
@@ -96,13 +98,14 @@ export const MainBar = () => {
                     {renderNavlinks()}
                     <button
                         className="flex items-center"
-                        // onClick={() => focus search bar}
+                        onClick={() => setSearchDropdownOpen(!searchDropdownOpen)}
                     >
                         <MagnifyingGlass className="h-[22px] w-[22px] fill-dark-blue" />
                     </button>
                 </div>
             </div>
             <Dropdown content={dropdownContent} />
+            <SearchDropdown open={searchDropdownOpen} />
         </div>
     );
 };
