@@ -30,9 +30,9 @@ export const Result = (props: Person) => {
 
     return (
         <div className="flex w-full flex-col gap-[50px]">
-            <div className="flex w-full gap-[113px]">
+            <div className="flex w-full flex-col gap-10 md:flex-row lg:gap-[113px]">
                 <div className="flex flex-1 flex-col gap-[30px]">
-                    <div className="flex w-full items-start gap-[33px]">
+                    <div className="flex w-full flex-wrap items-start gap-[33px] md:flex-nowrap">
                         <Image
                             src={props.ProfileImage}
                             width={86}
@@ -48,7 +48,7 @@ export const Result = (props: Person) => {
                                     <span className="text-light-blue">•</span> 9 miles
                                 </p>
                             </div>
-                            <div className="flex gap-[35px]">
+                            <div className="flex flex-col flex-wrap gap-x-[35px] gap-y-3.5 sm:flex-row">
                                 <IconText
                                     icon="phone"
                                     iconClassName={iconClassName}

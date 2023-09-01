@@ -61,7 +61,7 @@ export const Results = () => {
 
     return (
         <div className="flex w-full justify-center px-5 py-16">
-            <div className="max-w-[1170px] flex-1 flex-col items-center justify-center gap-12 gap-[50px]">
+            <div className="flex max-w-[1170px] flex-1 flex-col items-center justify-center gap-12 gap-[50px]">
                 {renderContent()}
                 <More />
             </div>

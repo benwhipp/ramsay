@@ -27,12 +27,15 @@ export const ProfessionalBackground = (props: Props) => {
                                 layout
                             >
                                 {props.content.slice(1).map((para, index) => (
-                                    <p
+                                    <motion.p
                                         key={index}
-                                        className="mt-4 text-grey"
+                                        className="text-grey"
+                                        initial={{ marginTop: 0 }}
+                                        animate={{ marginTop: 20 }}
+                                        exit={{ marginTop: 0 }}
                                     >
                                         {para}
-                                    </p>
+                                    </motion.p>
                                 ))}
                             </motion.div>
                         )}
