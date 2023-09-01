@@ -23,7 +23,7 @@ export const Results = () => {
         if (results === null) {
             return (
                 <div className="flex w-full justify-center px-4 py-20">
-                    <p className="text-center text-xl font-medium text-light-blue">
+                    <p className="text-center text-3xl font-medium text-light-blue">
                         Enter a search term to begin.
                     </p>
                 </div>
