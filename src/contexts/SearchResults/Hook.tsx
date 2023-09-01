@@ -61,8 +61,6 @@ export const useSearchResultsData = (): SearchResultsAttributes => {
 
                     const paginatedArray = splitPages();
 
-                    console.log('paginatedArray', paginatedArray);
-
                     setResults(paginatedArray);
                     setNumberOfPages(paginatedArray.length);
                 } catch (error) {
