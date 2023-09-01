@@ -14,6 +14,11 @@ export const MainBar = () => {
     const [searchDropdownOpen, setSearchDropdownOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    const handleSearchClick = () => {
+        setSearchDropdownOpen(!searchDropdownOpen);
+        setMobileMenuOpen(false);
+    };
+
     const navlinks: NavlinkProps[] = [
         {
             content: 'About',
@@ -86,7 +91,7 @@ export const MainBar = () => {
         ));
 
     return (
-        <div className="relative flex w-full flex-col justify-center overflow-scroll border-b-[1px] border-b-blue-grey bg-white px-6 transition-all md:border-b-0 xl:px-12">
+        <div className="relative flex w-full flex-col justify-center border-b-[1px] border-b-blue-grey bg-white px-6 transition-all md:border-b-0 xl:px-12">
             <div className="flex max-w-[1640px] flex-1 items-center justify-between lg:items-stretch">
                 <div className="lg:hidden">
                     <MobileMenuIcon
@@ -108,13 +113,13 @@ export const MainBar = () => {
                 <div className="hidden gap-1 lg:flex xl:gap-6 2xl:gap-8">
                     {renderNavlinks()}
                     <SearchButton
-                        setDropdownOpen={setSearchDropdownOpen}
+                        handleClick={handleSearchClick}
                         dropdownOpen={searchDropdownOpen}
                     />
                 </div>
                 <div className="lg:hidden">
                     <SearchButton
-                        setDropdownOpen={setSearchDropdownOpen}
+                        handleClick={handleSearchClick}
                         dropdownOpen={searchDropdownOpen}
                         large
                     />

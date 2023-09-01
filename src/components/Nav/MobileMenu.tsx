@@ -34,7 +34,7 @@ export const MobileMenu = (props: Props) => {
         <AnimatePresence>
             {props.open && (
                 <motion.div
-                    className="flex max-h-screen w-full flex-col gap-4 overflow-scroll bg-white px-4 py-7"
+                    className="flex max-h-screen w-full flex-col gap-4 overflow-y-scroll bg-white px-4 py-7"
                     initial={{ height: 0, paddingTop: 0, paddingBottom: 0 }}
                     animate={{ height: 'auto', paddingTop: 30, paddingBottom: 30 }}
                     exit={{ height: 0, paddingTop: 0, paddingBottom: 0 }}

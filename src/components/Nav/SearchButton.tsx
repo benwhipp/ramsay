@@ -2,15 +2,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 interface Props {
     dropdownOpen: boolean;
+    handleClick: () => void;
     large?: boolean;
-    setDropdownOpen: (open: boolean) => void;
 }
 
 export const SearchButton = (props: Props) => {
     return (
         <button
             className="flex items-center"
-            onClick={() => props.setDropdownOpen(!props.dropdownOpen)}
+            onClick={props.handleClick}
         >
             <AnimatePresence
                 initial={false}
