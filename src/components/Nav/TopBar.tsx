@@ -27,7 +27,8 @@ export const TopBar = () => {
                 <div className="flex">{renderTabs()}</div>
                 <div className="flex items-center gap-9">
                     <IconText
-                        icon={<Phone className="w-[15px] fill-white" />}
+                        icon="phone"
+                        iconClassName="w-[15px] fill-white"
                         color="white"
                         text="0808 258 2079"
                         href="tel:08082582079"

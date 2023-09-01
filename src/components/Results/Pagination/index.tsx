@@ -6,27 +6,20 @@ import { Button } from '@/components/Results/Pagination/Button';
 import { SearchResultsContext } from '@/contexts/SearchResults/Context';
 
 export const Pagnation = () => {
-    const {
-        page,
-        setPage,
-        numberOfPages,
-        pageLength,
-        totalNumberOfResults,
-        nextPage,
-        lastPage,
-        results,
-    } = useContext(SearchResultsContext);
+    const { page, setPage, numberOfPages, totalNumberOfResults, nextPage, lastPage, results } =
+        useContext(SearchResultsContext);
+
+    const inactiveButtonStyles =
+        'bg-white hover:bg-lightest-grey border-[1px] border-lightest-grey text-light-blue';
 
     const NumberButton = ({ pageNumber }: { pageNumber: number }) => {
-        const styles =
-            pageNumber === page
-                ? 'bg-light-blue text-white'
-                : 'border-[1px] border-lightest-grey text-light-blue';
+        const styles = pageNumber === page ? 'bg-light-blue text-white' : inactiveButtonStyles;
 
         return (
             <Button
                 className={styles}
                 onClick={() => setPage(pageNumber)}
+                disabled={pageNumber === page}
             >
                 {pageNumber + 1}
             </Button>
@@ -59,13 +52,13 @@ export const Pagnation = () => {
                 <div className="flex">
                     {renderButtons()}
                     <Button
-                        className="border-lightest-grey border-[1px]"
+                        className={inactiveButtonStyles}
                         onClick={nextPage}
                     >
                         <ChevronRight className="h-[10px] fill-light-blue" />
                     </Button>
                     <Button
-                        className="border-lightest-grey border-[1px]"
+                        className={inactiveButtonStyles}
                         onClick={lastPage}
                     >
                         <ChevronsRight className="h-[10px] fill-light-blue" />
