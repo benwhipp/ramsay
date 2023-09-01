@@ -1,26 +1,30 @@
 import Phone from 'public/icons/phone.svg';
+import { useState } from 'react';
 
 import { Button } from '@/components/Button';
 import { IconText } from '@/components/IconText';
+import { Tab } from '@/components/Nav/Tab';
 
 export const TopBar = () => {
+    const tabs = ['Patients', 'Health Professionals', 'Careers'];
+
+    const [activeTab, setActiveTab] = useState('Patients');
+
+    const renderTabs = () =>
+        tabs.map((tab) => (
+            <Tab
+                content={tab}
+                // activeTab in key forces re-render, correctly resetting variant styles on change
+                key={`topBarTab${tab}${activeTab}`}
+                active={tab === activeTab}
+                setActiveTab={setActiveTab}
+            />
+        ));
+
     return (
         <div className="flex w-full justify-center bg-dark-blue">
             <div className="flex max-w-[1640px] flex-1 justify-between">
-                <div className="flex">
-                    <Button
-                        variant="filled"
-                        content="Patients"
-                    />
-                    <Button
-                        variant="filled"
-                        content="Health Professionals"
-                    />
-                    <Button
-                        variant="filled"
-                        content="Careers"
-                    />
-                </div>
+                <div className="flex">{renderTabs()}</div>
                 <div className="flex items-center gap-9">
                     <IconText
                         icon={<Phone className="w-[15px] fill-white" />}
