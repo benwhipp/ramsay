@@ -81,17 +81,24 @@ export const MainBar = () => {
         ));
 
     return (
-        <div className="flex w-full justify-center bg-white py-[25px]">
+        <div className="flex w-full justify-center bg-white">
             <div className="flex max-w-[1640px] flex-1 justify-between">
-                <Image
-                    width={80}
-                    height={70}
-                    src="/ramsay-logo.png"
-                    alt="Ramsay Health Care Logo"
-                />
-                <div className="flex items-center gap-8">
+                <div className="py-[25px]">
+                    <Image
+                        width={80}
+                        height={70}
+                        src="/ramsay-logo.png"
+                        alt="Ramsay Health Care Logo"
+                    />
+                </div>
+                <div className="flex gap-8">
                     {renderNavlinks()}
-                    <MagnifyingGlass className="h-[22px] w-[22px] fill-dark-blue" />
+                    <button
+                        className="flex items-center"
+                        // onClick={() => focus search bar}
+                    >
+                        <MagnifyingGlass className="h-[22px] w-[22px] fill-dark-blue" />
+                    </button>
                 </div>
             </div>
         </div>

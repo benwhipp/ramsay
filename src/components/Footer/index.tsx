@@ -37,14 +37,16 @@ export const Footer = () => {
                         <IconText
                             textClassName="text-sm"
                             color="grey"
-                            icon={<Phone className="h-[15px] fill-blue-grey" />}
+                            icon="phone"
+                            iconClassName="h-[15px]"
                             text="0808 258 2079"
                             href="tel:08082582079"
                         />
                         <IconText
                             textClassName="text-sm"
                             color="grey"
-                            icon={<Envelope className="h-[15px] fill-blue-grey" />}
+                            iconClassName="h-[15px]"
+                            icon="envelope"
                             text="enquiries@ashsteadhospital.co.uk"
                             href="mailto:enquiries@ashsteadhospital.co.uk"
                         />

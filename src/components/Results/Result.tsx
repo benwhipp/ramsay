@@ -10,6 +10,9 @@ import { ProfessionalBackground } from '@/components/Results/ProfessionalBackgro
 import type { Person } from '@/types/result';
 
 export const Result = (props: Person) => {
+    const iconClassName = 'fill-light-blue group-hover:fill-lighter-blue';
+    const textClassName = 'text-light-blue group-hover:text-lighter-blue';
+
     // This is example content to demonstrate View More functionality, as the content from the mock API doesn't contain multiple paragraphs. This can be replaced by props.ProfessionalBackground in order to use that data
     const professionalBackground = `Mr Aldam is a Consultant Orthopaedic Surgeon specialising in joint replacements, revision hip and knee surgery, arthroscopy, back problems, sciatica plus shoulder, ankle and elbow surgery.
 	
@@ -47,17 +50,23 @@ export const Result = (props: Person) => {
                             </div>
                             <div className="flex gap-[35px]">
                                 <IconText
-                                    icon={<Phone className="fill-light-blue" />}
+                                    icon="phone"
+                                    iconClassName={iconClassName}
+                                    textClassName={textClassName}
                                     text={props.PhoneNo}
                                     href={`tel:${props.PhoneNo}`}
                                 />
                                 <IconText
-                                    icon={<ExternalLink className="fill-light-blue" />}
+                                    icon="link"
+                                    iconClassName={iconClassName}
+                                    textClassName={textClassName}
                                     text={'Go to hospital website'}
                                     href="/"
                                 />
                                 <IconText
-                                    icon={<ExternalLink className="fill-light-blue" />}
+                                    icon="link"
+                                    iconClassName={iconClassName}
+                                    textClassName={textClassName}
                                     text={'Get Directions'}
                                     href="/"
                                 />

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 import { colors } from 'tailwind.config';
 
 export interface NavlinkProps {
@@ -7,8 +7,22 @@ export interface NavlinkProps {
 }
 
 export const NavLink = (props: NavlinkProps) => {
+    const [lineRef, lineAnimate] = useAnimate();
+
+    const animateHoverStart = () => {
+        void lineAnimate(lineRef.current, { width: '100%' }, { duration: 0.2, ease: 'easeIn' });
+    };
+
+    const animateHoverEnd = () => {
+        void lineAnimate(lineRef.current, { width: 0 }, { duration: 0.1, ease: 'easeOut' });
+    };
+
     return (
-        <motion.button className="flex items-center gap-[3px] p-4 text-[17px] font-medium">
+        <motion.button
+            className="relative flex items-center gap-[3px] p-4 text-[17px] font-medium"
+            onHoverStart={animateHoverStart}
+            onHoverEnd={animateHoverEnd}
+        >
             {props.content}
             {props?.dropdownMenu && (
                 <motion.svg
@@ -22,6 +36,11 @@ export const NavLink = (props: NavlinkProps) => {
                     />
                 </motion.svg>
             )}
+            <motion.div
+                ref={lineRef}
+                className="absolute bottom-0 left-0 z-10 h-1 bg-light-blue"
+                initial={{ width: 0 }}
+            />
         </motion.button>
     );
 };

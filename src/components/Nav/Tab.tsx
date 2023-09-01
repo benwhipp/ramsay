@@ -25,7 +25,7 @@ export const Tab = (props: Props) => {
             color: colors['white'],
         },
         hover: {
-            backgroundColor: 'rgba(219, 227, 234, 0.5)',
+            backgroundColor: 'rgba(219, 227, 234, 0.2)',
             color: colors['white'],
             transition: {
                 duration: 0.4,

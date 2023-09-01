@@ -5,6 +5,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 // Exported separately for ease of referencing elsewhere within js
 export const colors = {
     'light-blue': '#0073BB',
+    'lighter-blue': '#0088DD',
     'dark-blue': '#0B2F50',
     'blue-grey': '#DBE3EA',
     grey: '#666666',

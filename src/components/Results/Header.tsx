@@ -19,10 +19,12 @@ export const Header = (props: Props) => {
                     </p>
                     <button
                         onClick={props.clearSearch}
-                        className="flex items-center gap-1.5"
+                        className="group flex items-center gap-1.5"
                     >
-                        <CloseIcon className="h-[20px] w-[20px]" />
-                        Clear Search
+                        <CloseIcon className="group-hover:fill-lighter-blue h-[20px] w-[20px] fill-light-blue transition-colors" />
+                        <span className="transition-all group-hover:text-light-blue group-hover:underline">
+                            Clear Search
+                        </span>
                     </button>
                 </div>
             </div>

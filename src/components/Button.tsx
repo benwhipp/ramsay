@@ -39,7 +39,7 @@ export const Button = (props: Props) => {
             backgroundColor: colors['light-blue'],
         },
         hover: {
-            backgroundColor: colors['dark-blue'],
+            backgroundColor: colors['lighter-blue'],
             transition: {
                 duration: 0.4,
                 ease: 'easeOut',
