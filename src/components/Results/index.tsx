@@ -11,48 +11,60 @@ export const Results = () => {
     const { results, isFetching, error, page, searchTermPostcode, clearSearch } =
         useContext(SearchResultsContext);
 
-    if (isFetching) {
-        return (
-            <div className="flex w-full justify-center p-20">
-                <Spinner />
-            </div>
-        );
-    }
+    const renderContent = () => {
+        if (isFetching) {
+            return (
+                <div className="flex w-full justify-center p-20">
+                    <Spinner />
+                </div>
+            );
+        }
 
-    if (results === null) {
-        return (
-            <div className="flex w-full justify-center p-20">
-                <p className="text-xl font-medium text-light-blue">Enter a search term to begin.</p>
-            </div>
-        );
-    }
+        if (results === null) {
+            return (
+                <div className="flex w-full justify-center px-4 py-20">
+                    <p className="text-center text-xl font-medium text-light-blue">
+                        Enter a search term to begin.
+                    </p>
+                </div>
+            );
+        }
 
-    if (error !== null) {
-        return (
-            <div className="flex w-full justify-center p-20">
-                <p className="text-xl font-medium text-light-blue">{error}</p>
-            </div>
-        );
-    }
+        if (error !== null) {
+            return (
+                <div className="flex w-full justify-center p-20">
+                    <p className="text-xl font-medium text-light-blue">{error}</p>
+                </div>
+            );
+        }
 
-    const renderResults = () =>
-        results[page].map((result) => (
-            <Result
-                {...result}
-                key={`result${result.Title}`}
-            />
-        ));
+        const renderResults = () =>
+            results[page].map((result) => (
+                <Result
+                    {...result}
+                    key={`result${result.Title}`}
+                />
+            ));
+
+        return (
+            <>
+                <Header
+                    postcode={searchTermPostcode.postcode}
+                    searchTerm={searchTermPostcode.searchTerm}
+                    clearSearch={clearSearch}
+                />
+                {renderResults()}
+                <Pagnation />
+            </>
+        );
+    };
 
     return (
-        <div className="container flex flex-col items-center justify-center gap-12 gap-[50px] px-4 py-16">
-            <Header
-                postcode={searchTermPostcode.postcode}
-                searchTerm={searchTermPostcode.searchTerm}
-                clearSearch={clearSearch}
-            />
-            {renderResults()}
-            <Pagnation />
-            <More />
+        <div className="flex w-full justify-center px-5 py-16">
+            <div className="max-w-[1170px] flex-1 flex-col items-center justify-center gap-12 gap-[50px]">
+                {renderContent()}
+                <More />
+            </div>
         </div>
     );
 };

@@ -25,7 +25,7 @@ export const TopBar = () => {
         <div className="flex w-full justify-center bg-dark-blue">
             <div className="flex max-w-[1640px] flex-1 justify-between">
                 <div className="flex">{renderTabs()}</div>
-                <div className="flex items-center gap-9">
+                <div className="hidden items-center gap-9 md:flex">
                     <IconText
                         icon="phone"
                         iconClassName="w-[15px] fill-white"

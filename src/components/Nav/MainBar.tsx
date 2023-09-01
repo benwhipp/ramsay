@@ -84,7 +84,7 @@ export const MainBar = () => {
         ));
 
     return (
-        <div className="relative flex w-full justify-center bg-white">
+        <div className="relative flex w-full justify-center bg-white px-6 xl:px-12">
             <div className="flex max-w-[1640px] flex-1 justify-between">
                 <div className="py-[25px]">
                     <Image
@@ -94,7 +94,7 @@ export const MainBar = () => {
                         alt="Ramsay Health Care Logo"
                     />
                 </div>
-                <div className="flex gap-8">
+                <div className="hidden gap-1 lg:flex xl:gap-6 2xl:gap-8">
                     {renderNavlinks()}
                     <button
                         className="flex items-center"

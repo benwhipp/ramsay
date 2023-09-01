@@ -13,7 +13,7 @@ export const Square = (props: SquareProps) => {
             className="group relative aspect-square flex-1 overflow-hidden p-[30px]"
             href={props.href}
         >
-            <p className="relative z-10 text-2xl font-medium text-dark-blue transition-colors group-hover:text-light-blue">
+            <p className="relative z-[1] text-2xl font-medium text-dark-blue transition-colors group-hover:text-light-blue">
                 {props.content}
             </p>
             <Image

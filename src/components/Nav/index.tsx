@@ -1,10 +1,8 @@
 import { MainBar } from '@/components/Nav/MainBar';
-import { TopBar } from '@/components/Nav/TopBar';
 
 export const Nav = () => {
     return (
-        <nav className="flex w-full flex-col">
-            <TopBar />
+        <nav className="sticky top-0 z-10 flex w-full flex-col lg:relative">
             <MainBar />
         </nav>
     );

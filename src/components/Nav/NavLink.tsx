@@ -25,7 +25,7 @@ export const NavLink = (props: Props) => {
 
     return (
         <motion.button
-            className="group relative flex items-center gap-[3px] p-4 text-[17px] font-medium"
+            className="lg:text-regular group relative flex items-center gap-[3px] p-4 text-[17px] font-medium xl:text-[17px]"
             onHoverStart={animateHoverStart}
             onHoverEnd={animateHoverEnd}
         >

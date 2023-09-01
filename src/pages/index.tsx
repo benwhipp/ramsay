@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
+import { TopBar } from '@/components/Nav/TopBar';
 import { Results } from '@/components/Results';
 import { Search } from '@/components/Search';
 import { StickyMenu } from '@/components/StickyMenu';
@@ -23,6 +24,7 @@ const Home = () => {
                 />
             </Head>
             <main className="relative flex min-h-screen flex-col items-center justify-center bg-white">
+                <TopBar />
                 <Nav />
                 <StickyMenu />
                 <SearchResultsContext.Provider value={useSearchResultsData()}>

@@ -4,8 +4,8 @@ import { Bar } from '@/components/Search/Bar';
 
 export const Search = () => {
     return (
-        <header className="relative flex w-full flex-col gap-[50px] bg-black px-[140px] py-20">
-            <h1 className="z-10 text-center text-6xl font-light text-white">
+        <header className="relative flex w-full flex-col gap-[50px] bg-black px-5 pb-5 pt-[50px] sm:pb-20 sm:pt-20 xl:px-[140px]">
+            <h1 className="z-[1] text-center text-5xl font-light text-white sm:text-6xl">
                 Search for a Specialist
             </h1>
             <Bar />

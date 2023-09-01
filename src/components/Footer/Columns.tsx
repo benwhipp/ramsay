@@ -48,7 +48,7 @@ export const Columns = () => {
         ));
 
     return (
-        <div className="flex flex-1 justify-end gap-[50px]">
+        <div className="flex flex-1 flex-col justify-end gap-10 lg:flex-row lg:gap-[50px]">
             {renderLinkColumns()}
             <Column
                 title="Translate"

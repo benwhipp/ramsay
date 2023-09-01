@@ -29,8 +29,10 @@ export const More = () => {
 
     return (
         <div className="flex w-full flex-col gap-[50px]">
-            <h3 className="text-[28px] font-medium text-dark-blue">More from Ramsay Health</h3>
-            <div className="flex gap-[26px]">{renderSquares()}</div>
+            <h3 className="text-2xl font-medium text-dark-blue sm:text-[28px]">
+                More from Ramsay Health Care
+            </h3>
+            <div className="flex flex-col gap-4 md:flex-row md:gap-[26px]">{renderSquares()}</div>
         </div>
     );
 };

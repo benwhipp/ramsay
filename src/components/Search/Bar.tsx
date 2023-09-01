@@ -44,13 +44,13 @@ export const Bar = () => {
     };
 
     return (
-        <div className="z-10 flex bg-white">
+        <div className="z-[1] flex flex-col bg-white lg:flex-row">
             <Input
                 label="Enter treatment name"
                 placeholder="Hip"
                 refValue={treatmentName}
             />
-            <div className="bg-lighter-grey w-[1px]" />
+            <div className="h-[1px] w-full bg-lighter-grey lg:h-auto lg:w-[1px]" />
             <Input
                 label="Enter postcode or city"
                 placeholder="Stansted CM24 1RW, UK"
