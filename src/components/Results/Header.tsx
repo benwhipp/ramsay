@@ -13,7 +13,7 @@ export const Header = (props: Props) => {
         <div className="flex w-full flex-col gap-[50px]">
             <div className="flex flex-col">
                 <h2 className="text-[40px] text-dark-blue">Search Results</h2>
-                <div className="flex items-center gap-5">
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5">
                     <p className="text-xl text-grey">
                         Displaying results for: {props.searchTerm}, Near: {props.postcode}
                     </p>
