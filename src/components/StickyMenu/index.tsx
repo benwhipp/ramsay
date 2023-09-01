@@ -12,21 +12,17 @@ export const StickyMenu = () => {
             style={{ boxShadow: '0 3px 6px rgba(0, 0, 0, 0.1)' }}
         >
             <Button
-                icon={<Phone className="h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue" />}
+                icon="phone"
                 href="tel:08082582079"
             />
             <Divider color="bg-blue-grey" />
             <Button
-                icon={
-                    <Envelope className="h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue" />
-                }
+                icon="envelope"
                 href="mailto:enquiries@ashsteadhospital.co.uk"
             />
             <Divider color="bg-blue-grey" />
             <Button
-                icon={
-                    <LocationDot className="h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue" />
-                }
+                icon="location"
                 href="https://maps.google.com"
             />
         </div>

@@ -1,34 +1,39 @@
-import { type AnimationProps, motion } from 'framer-motion';
-import { colors } from 'tailwind.config';
+import Envelope from 'public/icons/envelope.svg';
+import LocationDot from 'public/icons/location-dot.svg';
+import Phone from 'public/icons/phone.svg';
 
 interface Props {
     href: string;
-    icon: JSX.Element;
+    icon: 'phone' | 'location' | 'envelope';
 }
 
 export const Button = (props: Props) => {
-    const variants: AnimationProps['variants'] = {
-        initial: {
-            backgroundColor: colors['white'],
-        },
-        hover: {
-            backgroundColor: colors['blue-grey'],
-            transition: {
-                duration: 0.4,
-                ease: 'easeOut',
-            },
-        },
+    const iconStyles =
+        'h-full max-h-[20px] w-full max-w-[20px] fill-dark-blue group-hover:fill-light-blue';
+
+    const renderIcon = () => {
+        switch (props.icon) {
+            case 'phone': {
+                return <Phone className={iconStyles} />;
+            }
+            case 'location': {
+                return <LocationDot className={iconStyles} />;
+            }
+            case 'envelope': {
+                return <Envelope className={iconStyles} />;
+            }
+            default: {
+                return null;
+            }
+        }
     };
 
     return (
-        <motion.a
-            className="flex h-[41px] w-[41px] items-center justify-center"
+        <a
+            className="group flex h-[41px] w-[41px] items-center justify-center"
             href={props.href}
-            variants={variants}
-            initial="initial"
-            whileHover="hover"
         >
-            {props.icon}
-        </motion.a>
+            {renderIcon()}
+        </a>
     );
 };

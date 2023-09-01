@@ -35,17 +35,17 @@ export const Footer = () => {
                             Registered in England No.1532937
                         </p>
                         <IconText
-                            textClassName="text-sm"
+                            textClassName="text-sm group-hover:text-white"
                             color="grey"
                             icon="phone"
-                            iconClassName="h-[15px]"
+                            iconClassName="h-[15px] group-hover:fill-white"
                             text="0808 258 2079"
                             href="tel:08082582079"
                         />
                         <IconText
-                            textClassName="text-sm"
+                            textClassName="text-sm group-hover:text-white"
                             color="grey"
-                            iconClassName="h-[15px]"
+                            iconClassName="h-[15px] group-hover:fill-white"
                             icon="envelope"
                             text="enquiries@ashsteadhospital.co.uk"
                             href="mailto:enquiries@ashsteadhospital.co.uk"
