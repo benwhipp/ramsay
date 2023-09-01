@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 // Issues with getting search-icon svg to display correctly - leaving as a font-awesome icon for now
 import MagnifyingGlass from 'public/icons/magnifying-glass.svg';
