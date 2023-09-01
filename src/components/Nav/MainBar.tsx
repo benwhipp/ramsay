@@ -1,16 +1,17 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 // Issues with getting search-icon svg to display correctly - leaving as a font-awesome icon for now
 import MagnifyingGlass from 'public/icons/magnifying-glass.svg';
+import { useState } from 'react';
 
+import { Dropdown } from '@/components/Nav/Dropdown';
 import { NavLink } from '@/components/Nav/NavLink';
-
-interface Navlink {
-    content: string;
-    dropdownMenu?: string[];
-}
+import type { NavlinkProps } from '@/types/nav';
 
 export const MainBar = () => {
-    const navlinks: Navlink[] = [
+    const [dropdownContent, setDropdownContent] = useState<null | NavlinkProps>(null);
+
+    const navlinks: NavlinkProps[] = [
         {
             content: 'About',
         },
@@ -77,11 +78,12 @@ export const MainBar = () => {
                 content={link.content}
                 dropdownMenu={link.dropdownMenu}
                 key={`navlink${link.content}`}
+                setDropdownContent={setDropdownContent}
             />
         ));
 
     return (
-        <div className="flex w-full justify-center bg-white">
+        <div className="relative flex w-full justify-center bg-white">
             <div className="flex max-w-[1640px] flex-1 justify-between">
                 <div className="py-[25px]">
                     <Image
@@ -101,6 +103,7 @@ export const MainBar = () => {
                     </button>
                 </div>
             </div>
+            <Dropdown content={dropdownContent} />
         </div>
     );
 };

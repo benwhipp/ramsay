@@ -1,19 +1,28 @@
 import { motion, useAnimate } from 'framer-motion';
 import { colors } from 'tailwind.config';
 
-export interface NavlinkProps {
-    content: string;
-    dropdownMenu?: string[];
+import type { NavlinkProps } from '@/types/nav';
+
+interface Props extends NavlinkProps {
+    setDropdownContent: (content: NavlinkProps | null) => void;
 }
 
-export const NavLink = (props: NavlinkProps) => {
+export const NavLink = (props: Props) => {
     const [lineRef, lineAnimate] = useAnimate();
 
     const animateHoverStart = () => {
+        if (props?.dropdownMenu) {
+            props.setDropdownContent({ content: props.content, dropdownMenu: props.dropdownMenu });
+        }
+
         void lineAnimate(lineRef.current, { width: '100%' }, { duration: 0.2, ease: 'easeIn' });
     };
 
     const animateHoverEnd = () => {
+        if (props?.dropdownMenu) {
+            props.setDropdownContent(null);
+        }
+
         void lineAnimate(lineRef.current, { width: 0 }, { duration: 0.1, ease: 'easeOut' });
     };
 
