@@ -9,21 +9,23 @@ interface SocialLinkProps {
 }
 
 export const SocialLinks = () => {
+    const socialLinkStyles = 'h-[20px] fill-white hover:fill-lighter-blue transition-colors';
+
     const socialLinks: SocialLinkProps[] = [
         {
-            icon: <LinkedIn className="h-[20px] fill-white" />,
+            icon: <LinkedIn className={socialLinkStyles} />,
             href: 'https://linkedin.com',
         },
         {
-            icon: <Twitter className="h-[20px] fill-white" />,
+            icon: <Twitter className={socialLinkStyles} />,
             href: 'https://twitter.com',
         },
         {
-            icon: <Facebook className="h-[20px] fill-white" />,
+            icon: <Facebook className={socialLinkStyles} />,
             href: 'https://facebook.com',
         },
         {
-            icon: <Youtube className="h-[20px] fill-white" />,
+            icon: <Youtube className={socialLinkStyles} />,
             href: 'https://youtube.com',
         },
     ];

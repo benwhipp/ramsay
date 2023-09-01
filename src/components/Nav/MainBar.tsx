@@ -91,8 +91,8 @@ export const MainBar = () => {
         ));
 
     return (
-        <div className="relative flex w-full flex-col justify-center border-b-[1px] border-b-blue-grey bg-white px-6 transition-all md:border-b-0 xl:px-12">
-            <div className="flex max-w-[1640px] flex-1 items-center justify-between lg:items-stretch">
+        <div className="relative flex w-full flex-col items-center border-b-[1px] border-b-blue-grey bg-white px-6 transition-all md:border-b-0 xl:px-12">
+            <div className="flex w-full max-w-[1640px] items-center justify-between lg:items-stretch">
                 <div className="lg:hidden">
                     <MobileMenuIcon
                         isOpen={mobileMenuOpen}
